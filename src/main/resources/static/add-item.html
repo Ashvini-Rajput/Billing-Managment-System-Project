@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Item</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+<h1>Add Item</h1>
+<button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<div class="container">
+
+<input type="text" id="name" placeholder="Item Name">
+<input type="number" id="price" placeholder="Price">
+<input type="number" id="quantity" placeholder="Quantity">
+
+<button onclick="addItem()">Add Item</button>
+
+</div>
+
+<script>
+
+function addItem(){
+
+let name=document.getElementById("name").value;
+let price=document.getElementById("price").value;
+let quantity=document.getElementById("quantity").value;
+
+fetch(`http://localhost:8080/items/add?name=${name}&price=${price}&quantity=${quantity}`)
+.then(res=>res.json())
+.then(data=>{
+alert("Item added successfully");
+})
+
+}
+
+function logout(){
+window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>
