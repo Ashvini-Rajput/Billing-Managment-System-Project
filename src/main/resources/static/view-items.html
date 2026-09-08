@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Items</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+<h1>View Items</h1>
+<button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Price</th>
+<th>Quantity</th>
+</tr>
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+<script>
+
+fetch("http://localhost:8080/items/all")
+.then(res=>res.json())
+.then(data=>{
+
+let table="";
+
+data.forEach(item=>{
+
+table+=`
+<tr>
+<td>${item.id}</td>
+<td>${item.name}</td>
+<td>${item.price}</td>
+<td>${item.quantity}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("tableBody").innerHTML=table;
+
+});
+
+function logout(){
+window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>

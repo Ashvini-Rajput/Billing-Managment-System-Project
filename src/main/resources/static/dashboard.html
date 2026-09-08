@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Billing System</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<div class="dashboard">
+
+<h2>Welcome to Dashboard</h2>
+
+<button onclick="location.href='add-item.html'">Add Item</button>
+
+<button onclick="location.href='view-item.html'">View Items</button>
+
+</div>
+
+<script>
+function logout(){
+    alert("Logged out successfully");
+    window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
